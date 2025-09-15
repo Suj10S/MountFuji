@@ -420,6 +420,84 @@
             background: white;
         }
 
+        /* Section spacing adjustments */
+        section {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        .py-20 {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .mb-16 {
+            margin-bottom: 3rem;
+        }
+
+        .mb-12 {
+            margin-bottom: 2rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mb-6 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 0.75rem;
+        }
+
+        .space-y-8 > * + * {
+            margin-top: 1.5rem;
+        }
+
+        .space-y-6 > * + * {
+            margin-top: 1rem;
+        }
+
+        .space-y-4 > * + * {
+            margin-top: 0.75rem;
+        }
+
+        .space-y-3 > * + * {
+            margin-top: 0.5rem;
+        }
+
+        .gap-12 {
+            gap: 2rem;
+        }
+
+        .gap-8 {
+            gap: 1.5rem;
+        }
+
+        .gap-6 {
+            gap: 1rem;
+        }
+
+        .gap-4 {
+            gap: 0.75rem;
+        }
+
+        /* Timeline adjustments */
+        .timeline-item {
+            margin-bottom: 2rem;
+        }
+
+        /* Testimonial adjustments */
+        .testimonial-card {
+            min-height: 180px;
+        }
+
+        /* Service card adjustments */
+        .service-card {
+            padding: 1.5rem;
+        }
+
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: flex;
@@ -435,6 +513,16 @@
             
             .city-content p {
                 font-size: 1rem;
+            }
+
+            section {
+                padding-top: 2.5rem;
+                padding-bottom: 2.5rem;
+            }
+
+            .py-20 {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
             }
         }
     </style>
@@ -508,7 +596,7 @@
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+    <section id="home" class="hero-bg min-h-[80vh] flex items-center relative overflow-hidden">
         
         <div class="container mx-auto px-6 text-center text-white relative z-10">
             <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in">
@@ -530,7 +618,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-about">
+    <section id="about" class="py-16 bg-about">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
@@ -595,16 +683,16 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-services">
+    <section id="services" class="py-16 bg-services">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-12">
                 <h2 class="text-4xl md:text-5xl font-bold text-blue-900 mb-4">Our Services</h2>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive support for your journey to Japan</p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="service-card bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl border border-blue-200">
-                    <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mb-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="service-card bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200">
+                    <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mb-4">
                         <i class="fas fa-graduation-cap text-white text-2xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-blue-900 mb-4">University Applications</h3>
@@ -616,8 +704,8 @@
                     </ul>
                 </div>
                 
-                <div class="service-card bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-2xl border border-red-200">
-                    <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mb-6">
+                <div class="service-card bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-2xl border border-red-200">
+                    <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mb-4">
                         <i class="fas fa-passport text-white text-2xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-blue-900 mb-4">Visa Processing</h3>
@@ -629,8 +717,8 @@
                     </ul>
                 </div>
                 
-                <div class="service-card bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl border border-orange-200">
-                    <div class="w-16 h-16 bg-orange-400 rounded-full flex items-center justify-center mb-6">
+                <div class="service-card bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-2xl border border-orange-200">
+                    <div class="w-16 h-16 bg-orange-400 rounded-full flex items-center justify-center mb-4">
                         <i class="fas fa-language text-white text-2xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-blue-900 mb-4">Language Training</h3>
@@ -642,8 +730,8 @@
                     </ul>
                 </div>
                 
-                <div class="service-card bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl border border-green-200">
-                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-6">
+                <div class="service-card bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl border border-green-200">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-4">
                         <i class="fas fa-home text-white text-2xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-blue-900 mb-4">Accommodation</h3>
@@ -655,8 +743,8 @@
                     </ul>
                 </div>
                 
-                <div class="service-card bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl border border-purple-200">
-                    <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-6">
+                <div class="service-card bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl border border-purple-200">
+                    <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-4">
                         <i class="fas fa-briefcase text-white text-2xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-blue-900 mb-4">Career Guidance</h3>
@@ -668,8 +756,8 @@
                     </ul>
                 </div>
                 
-                <div class="service-card bg-gradient-to-br from-pink-50 to-pink-100 p-8 rounded-2xl border border-pink-200">
-                    <div class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mb-6">
+                <div class="service-card bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-2xl border border-pink-200">
+                    <div class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mb-4">
                         <i class="fas fa-hands-helping text-white text-2xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-blue-900 mb-4">Pre-Departure Support</h3>
@@ -685,9 +773,9 @@
     </section>
 
     <!-- Process Timeline -->
-    <section class="py-20 bg-gradient-to-br from-blue-900 to-blue-800">
+    <section class="py-16 bg-gradient-to-br from-blue-900 to-blue-800">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-12">
                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Process</h2>
                 <p class="text-xl text-blue-200 max-w-2xl mx-auto">Simple steps to your Japanese education journey</p>
             </div>
@@ -696,7 +784,7 @@
                 <div class="relative">
                     <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-orange-400"></div>
                     
-                    <div class="timeline-item mb-12 flex items-center">
+                    <div class="timeline-item mb-8 flex items-center">
                         <div class="w-1/2 pr-8 text-right">
                             <div class="process-step bg-white p-6 rounded-xl shadow-lg">
                                 <h3 class="text-xl font-bold text-blue-900 mb-2">Initial Consultation</h3>
@@ -709,7 +797,7 @@
                         <div class="w-1/2 pl-8"></div>
                     </div>
                     
-                    <div class="timeline-item mb-12 flex items-center">
+                    <div class="timeline-item mb-8 flex items-center">
                         <div class="w-1/2 pr-8"></div>
                         <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center relative z-10">
                             <span class="text-white font-bold">2</span>
@@ -722,7 +810,7 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item mb-12 flex items-center">
+                    <div class="timeline-item mb-8 flex items-center">
                         <div class="w-1/2 pr-8 text-right">
                             <div class="process-step bg-white p-6 rounded-xl shadow-lg">
                                 <h3 class="text-xl font-bold text-blue-900 mb-2">Application Preparation</h3>
@@ -735,7 +823,7 @@
                         <div class="w-1/2 pl-8"></div>
                     </div>
                     
-                    <div class="timeline-item mb-12 flex items-center">
+                    <div class="timeline-item mb-8 flex items-center">
                         <div class="w-1/2 pr-8"></div>
                         <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center relative z-10">
                             <span class="text-white font-bold">4</span>
@@ -766,9 +854,9 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-testimonials">
+    <section id="testimonials" class="py-16 bg-testimonials">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-12">
                 <h2 class="text-4xl md:text-5xl font-bold text-blue-900 mb-4">Student Success Stories</h2>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">Hear from our students who are now thriving in Japan</p>
             </div>
@@ -863,7 +951,7 @@
     </section>
 
     <!-- Words from Founder Section -->
-    <section class="py-20 bg-founder text-white">
+    <section class="py-16 bg-founder text-white">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-12">
@@ -901,9 +989,9 @@
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="py-20 bg-faq text-white">
+    <section id="faq" class="py-16 bg-faq text-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-12">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
                 <p class="text-xl max-w-2xl mx-auto">Get answers to the most common questions about studying in Japan</p>
             </div>
@@ -992,7 +1080,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-red-500 to-orange-400">
+    <section class="py-16 bg-gradient-to-r from-red-500 to-orange-400">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Start Your Journey?</h2>
             <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
@@ -1010,9 +1098,9 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-contact text-white">
+    <section id="contact" class="py-16 bg-contact text-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-12">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
                 <p class="text-xl max-w-2xl mx-auto">Ready to begin your journey to Japan? Contact us today for a free consultation.</p>
             </div>
