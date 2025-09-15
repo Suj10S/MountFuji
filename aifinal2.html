@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mount Fuji Consultancy - Your Gateway to Japan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(13, 59, 102, 0.9), rgba(230, 57, 70, 0.8));
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .floating-icon:nth-child(2) {
+            animation-delay: -1s;
+        }
+        
+        .floating-icon:nth-child(3) {
+            animation-delay: -2s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.8s ease-out forwards;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(13, 59, 102, 0.2);
+        }
+        
+        .timeline-item {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+        
+        .timeline-item.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .testimonial-card {
+            min-height: 200px;
+            transition: all 0.5s ease;
+        }
+        
+        .process-step {
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: scale(1.05);
+        }
+        
+        .navbar-scroll {
+            backdrop-filter: blur(10px);
+            background: rgba(13, 59, 102, 0.95);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #E63946, #F4A261);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* New styles for the added features */
+        .floating-contact-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-contact-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+            bottom: 100px;
+        }
+        
+        .phone-btn {
+            background-color: #0d3b66;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        .bg-services {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1526491109672-74740652b963?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .bg-about {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1515041219749-89347f83291a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .bg-testimonials {
+            background-image: linear-gradient(rgba(249, 250, 251, 0.95), rgba(219, 234, 254, 0.95)), url('https://images.unsplash.com/photo-1580725712227-8327d3f7b3d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .bg-founder {
+            background-image: linear-gradient(rgba(13, 59, 102, 0.85), rgba(13, 59, 102, 0.85)), url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .bg-faq {
+            background-image: linear-gradient(rgba(13, 59, 102, 0.85), rgba(13, 59, 102, 0.85)), url('https://images.unsplash.com/photo-1710073948815-6e9d96a1a8a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .bg-contact {
+            background-image: linear-gradient(rgba(13, 59, 102, 0.85), rgba(13, 59, 102, 0.85)), url('https://images.unsplash.com/photo-1535139262971-c51845709a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .contact-social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-social-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        .progress-bar {
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .gradient-blue {
+            background: linear-gradient(to right, #3b82f6, #60a5fa);
+        }
+        
+        .gradient-orange {
+            background: linear-gradient(to right, #f97316, #fb923c);
+        }
+        
+        .slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-right.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .notice-card {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border-left: 4px solid #E63946;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            max-width: 320px;
+            transform: translateX(100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .notice-card.show {
+            transform: translateX(0);
+        }
+        
+        .inquiry-options {
+            display: none;
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .inquiry-options.show {
+            display: flex;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Added style for select options */
+        #contactStudyLevel option {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Notice Card -->
+    <div class="notice-card">
+        <div class="flex justify-between items-start mb-2">
+            <h3 class="font-bold text-blue-900">Special Offer!</h3>
+            <button onclick="closeNotice()" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <p class="text-sm text-gray-600">Free consultation for all new students this month. Limited spots available!</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-gradient-to-r from-red-500 to-orange-400 rounded-full flex items-center justify-center">
+                    <i class="fas fa-mountain text-white text-lg"></i>
+                </div>
+                <span class="text-white text-xl font-bold">Mount Fuji Consultancy</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-white hover:text-orange-300 transition-colors">Home</a>
+                <a href="#about" class="text-white hover:text-orange-300 transition-colors">About</a>
+                <a href="#services" class="text-white hover:text-orange-300 transition-colors">Services</a>
+                <a href="#testimonials" class="text-white hover:text-orange-300 transition-colors">Testimonials</a>
+                <a href="#contact" class="text-white hover:text-orange-300 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Floating Contact Buttons -->
+    <a href="https://wa.me/9779841234567?text=Hello%20Mount%20Fuji%20Consultancy%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services" 
+       target="_blank" class="floating-contact-btn whatsapp-btn pulse">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <a href="tel:+977-1-4444444" class="floating-contact-btn phone-btn">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+        <!-- Floating Icons -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="floating-icon absolute top-20 left-10 text-orange-300 text-2xl">🗾</div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center text-white relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in">
+                Your Gateway to 
+                <span class="gradient-text">Japan</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto fade-in" style="animation-delay: 0.3s;">
+                Expert guidance for studying in Japan. From university applications to visa processing, we make your Japanese dream a reality.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in" style="animation-delay: 0.6s;">
+                <button onclick="scrollToSection('services')" class="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105">
+                    Explore Services
+                </button>
+                <button onclick="scrollToSection('contact')" class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-full text-lg font-semibold transition-all">
+                    Get Free Consultation
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-about">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-blue-900 mb-6">About Mount Fuji Consultancy</h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        With over a decade of experience in international education, Mount Fuji Consultancy has helped thousands of students achieve their dreams of studying in Japan. Our team of certified counselors and Japan education experts provide personalized guidance throughout your journey.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-8">
+                        We maintain partnerships with over 200 Japanese universities and institutions, ensuring you have access to the best educational opportunities that match your profile and aspirations.
+                    </p>
+                    
+                    <button onclick="scrollToSection('contact')" class="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-full font-semibold transition-all transform hover:scale-105">
+                        Start Your Journey
+                    </button>
+                </div>
+                
+                <!-- Stats Section -->
+                <div class="slide-right">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center p-6 bg-blue-50 rounded-xl">
+                            <div class="counter text-3xl font-bold text-blue-600" data-target="1000">0</div>
+                            <p class="text-gray-600 font-medium">Students Guided</p>
+                        </div>
+                        <div class="text-center p-6 bg-orange-50 rounded-xl">
+                            <div class="counter text-3xl font-bold text-orange-600" data-target="50">0</div>
+                            <p class="text-gray-600 font-medium">Partner Universities</p>
+                        </div>
+                        <div class="text-center p-6 bg-purple-50 rounded-xl">
+                            <div class="counter text-3xl font-bold text-purple-600" data-target="95">0</div>
+                            <p class="text-gray-600 font-medium">Success Rate %</p>
+                        </div>
+                        <div class="text-center p-6 bg-green-50 rounded-xl">
+                            <div class="counter text-3xl font-bold text-green-600" data-target="15">0</div>
+                            <p class="text-gray-600 font-medium">Years Experience</p>
+                        </div>
+                    </div>
+
+                    <!-- Progress bars -->
+                    <div class="mt-8 space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 font-medium">Student Satisfaction</span>
+                                <span class="text-gray-700 font-medium">98%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="progress-bar gradient-blue h-3 rounded-full" style="--progress:98%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 font-medium">Visa Success Rate</span>
+                                <span class="text-gray-700 font-medium">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="progress-bar gradient-orange h-3 rounded-full" style="--progress:95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-services">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-blue-900 mb-4">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive support for your journey to Japan</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl border border-blue-200">
+                    <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4">University Applications</h3>
+                    <p class="text-gray-700 mb-6">Complete assistance with Japanese university applications, from document preparation to interview coaching.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>✓ Document translation & certification</li>
+                        <li>✓ Application form completion</li>
+                        <li>✓ Interview preparation</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-2xl border border-red-200">
+                    <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-passport text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Visa Processing</h3>
+                    <p class="text-gray-700 mb-6">Expert visa guidance ensuring smooth approval process for student visas to Japan.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>✓ Visa application assistance</li>
+                        <li>✓ Document verification</li>
+                        <li>✓ Embassy appointment booking</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl border border-orange-200">
+                    <div class="w-16 h-16 bg-orange-400 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-language text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Language Training</h3>
+                    <p class="text-gray-700 mb-6">Japanese language courses from beginner to advanced levels with certified instructors.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>✓ JLPT preparation</li>
+                        <li>✓ Conversation practice</li>
+                        <li>✓ Cultural orientation</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl border border-green-200">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-home text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Accommodation</h3>
+                    <p class="text-gray-700 mb-6">Secure comfortable and affordable housing options near your university in Japan.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>✓ Dormitory arrangements</li>
+                        <li>✓ Apartment hunting</li>
+                        <li>✓ Contract assistance</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl border border-purple-200">
+                    <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-briefcase text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Career Guidance</h3>
+                    <p class="text-gray-700 mb-6">Job placement assistance and career counseling for opportunities in Japan.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>✓ Resume preparation</li>
+                        <li>✓ Interview coaching</li>
+                        <li>✓ Job matching</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-gradient-to-br from-pink-50 to-pink-100 p-8 rounded-2xl border border-pink-200">
+                    <div class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-hands-helping text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Pre-Departure Support</h3>
+                    <p class="text-gray-700 mb-6">Complete preparation for your journey including cultural orientation and practical guidance.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>✓ Cultural briefing</li>
+                        <li>✓ Travel arrangements</li>
+                        <li>✓ Emergency contacts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section class="py-20 bg-gradient-to-br from-blue-900 to-blue-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Process</h2>
+                <p class="text-xl text-blue-200 max-w-2xl mx-auto">Simple steps to your Japanese education journey</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-orange-400"></div>
+                    
+                    <div class="timeline-item mb-12 flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="process-step bg-white p-6 rounded-xl shadow-lg">
+                                <h3 class="text-xl font-bold text-blue-900 mb-2">Initial Consultation</h3>
+                                <p class="text-gray-600">Free assessment of your profile and goals</p>
+                            </div>
+                        </div>
+                        <div class="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center relative z-10">
+                            <span class="text-white font-bold">1</span>
+                        </div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                    
+                    <div class="timeline-item mb-12 flex items-center">
+                        <div class="w-1/2 pr-8"></div>
+                        <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center relative z-10">
+                            <span class="text-white font-bold">2</span>
+                        </div>
+                        <div class="w-1/2 pl-8">
+                            <div class="process-step bg-white p-6 rounded-xl shadow-lg">
+                                <h3 class="text-xl font-bold text-blue-900 mb-2">University Selection</h3>
+                                <p class="text-gray-600">Choose the best universities matching your profile</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item mb-12 flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="process-step bg-white p-6 rounded-xl shadow-lg">
+                                <h3 class="text-xl font-bold text-blue-900 mb-2">Application Preparation</h3>
+                                <p class="text-gray-600">Complete documentation and application submission</p>
+                            </div>
+                        </div>
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center relative z-10">
+                            <span class="text-white font-bold">3</span>
+                        </div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                    
+                    <div class="timeline-item mb-12 flex items-center">
+                        <div class="w-1/2 pr-8"></div>
+                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center relative z-10">
+                            <span class="text-white font-bold">4</span>
+                        </div>
+                        <div class="w-1/2 pl-8">
+                            <div class="process-step bg-white p-6 rounded-xl shadow-lg">
+                                <h3 class="text-xl font-bold text-blue-900 mb-2">Visa Processing</h3>
+                                <p class="text-gray-600">Complete visa application and approval</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="process-step bg-white p-6 rounded-xl shadow-lg">
+                                <h3 class="text-xl font-bold text-blue-900 mb-2">Departure & Support</h3>
+                                <p class="text-gray-600">Pre-departure briefing and ongoing support</p>
+                            </div>
+                        </div>
+                        <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center relative z-10">
+                            <span class="text-white font-bold">5</span>
+                        </div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-testimonials">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-blue-900 mb-4">Student Success Stories</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Hear from our students who are now thriving in Japan</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div id="testimonialCarousel" class="relative overflow-hidden">
+                    <div id="testimonialTrack" class="flex transition-transform duration-500 ease-in-out">
+                        <div class="testimonial-card w-full flex-shrink-0 px-4">
+                            <div class="bg-white rounded-2xl p-8 shadow-lg">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-xl font-bold">
+                                        R
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="text-xl font-bold text-blue-900">Rajesh Sharma</h4>
+                                        <p class="text-gray-600">University of Tokyo, Computer Science</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 text-lg mb-6">
+                                    "Mount Fuji Consultancy made my dream of studying at the University of Tokyo a reality. Their guidance through the application process was exceptional, and the visa support was seamless. I'm now pursuing my Master's in Computer Science!"
+                                </p>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card w-full flex-shrink-0 px-4">
+                            <div class="bg-white rounded-2xl p-8 shadow-lg">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center text-white text-xl font-bold">
+                                        P
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="text-xl font-bold text-blue-900">Priya Patel</h4>
+                                        <p class="text-gray-600">Waseda University, International Relations</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 text-lg mb-6">
+                                    "The team at Mount Fuji Consultancy was incredibly supportive throughout my journey. From university selection to accommodation arrangements, they handled everything professionally. I'm now studying at Waseda University and loving every moment!"
+                                </p>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card w-full flex-shrink-0 px-4">
+                            <div class="bg-white rounded-2xl p-8 shadow-lg">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center text-white text-xl font-bold">
+                                        A
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="text-xl font-bold text-blue-900">Arjun Thapa</h4>
+                                        <p class="text-gray-600">Kyoto University, Engineering</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 text-lg mb-6">
+                                    "I was initially worried about the language barrier and cultural differences, but Mount Fuji Consultancy's pre-departure training prepared me perfectly. Their ongoing support even after arrival in Japan has been invaluable."
+                                </p>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center mt-8 space-x-4">
+                    <button onclick="previousTestimonial()" class="w-12 h-12 bg-blue-900 text-white rounded-full hover:bg-blue-800 transition-colors">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button onclick="nextTestimonial()" class="w-12 h-12 bg-blue-900 text-white rounded-full hover:bg-blue-800 transition-colors">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Words from Founder Section -->
+    <section class="py-20 bg-founder text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Words from Our Founder</h2>
+                    <p class="text-xl max-w-2xl mx-auto">A personal message about our mission and commitment</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl shadow-xl overflow-hidden">
+                    <div class="grid lg:grid-cols-2 gap-0">
+                        <div class="p-8 lg:p-12">
+                            <div class="mb-8">
+                                <div class="w-24 h-24 bg-gradient-to-r from-blue-900 to-red-500 rounded-full flex items-center justify-center text-white text-3xl font-bold mb-4">
+                                    SK
+                                </div>
+                                <h3 class="text-2xl font-bold mb-2">Suresh Kumar Sharma</h3>
+                                <p class="font-medium">Founder & CEO</p>
+                                <p class="text-sm">M.Ed from Waseda University, Tokyo</p>
+                            </div>
+                            
+                            <blockquote class="text-lg leading-relaxed">
+                                <i class="fas fa-quote-left text-3xl text-red-500 mb-4 block"></i>
+                                "Having experienced the challenges of studying abroad firsthand, I founded Mount Fuji Consultancy with a simple mission: to make the dream of studying in Japan accessible to every deserving student.
+                                <br><br>
+                                During my own journey to Japan in 2010, I faced numerous obstacles - from language barriers to complex application processes. These experiences taught me the importance of proper guidance and support.
+                                <br><br>
+                                Today, after helping over 5,000 students achieve their dreams, I remain committed to providing personalized, honest, and comprehensive support. Every student's success story reinforces our belief that with the right guidance, any dream is achievable."
+                                <i class="fas fa-quote-right text-3xl text-red-500 mt-4 block text-right"></i>
+                            </blockquote>
+                        </div>
+                        <div class="hidden lg:block bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1582058091505-6b8c3a6c9a3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-faq text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl max-w-2xl mx-auto">Get answers to the most common questions about studying in Japan</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-4">
+                    <div class="faq-item bg-white/10 backdrop-blur-md rounded-xl overflow-hidden">
+                        <button onclick="toggleFAQ(0)" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-white/5 transition-colors">
+                            <h3 class="text-lg font-semibold">What are the requirements to study in Japan?</h3>
+                            <i class="fas fa-chevron-down text-gray-300 transform transition-transform duration-200"></i>
+                        </button>
+                        <div class="faq-content hidden px-8 pb-6">
+                            <p>To study in Japan, you typically need: completed high school education (for undergraduate) or bachelor's degree (for graduate), basic Japanese language proficiency (JLPT N5-N2 depending on program), financial proof showing ability to cover tuition and living expenses, and a clean academic record. Some programs also accept students with English proficiency for English-taught courses.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-white/10 backdrop-blur-md rounded-xl overflow-hidden">
+                        <button onclick="toggleFAQ(1)" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-white/5 transition-colors">
+                            <h3 class="text-lg font-semibold">How much does it cost to study in Japan?</h3>
+                            <i class="fas fa-chevron-down text-gray-300 transform transition-transform duration-200"></i>
+                        </button>
+                        <div class="faq-content hidden px-8 pb-6">
+                            <p>The total cost varies by university and location. National universities charge around ¥535,800 ($4,000) per year for tuition, while private universities range from ¥800,000-2,000,000 ($6,000-15,000) annually. Living expenses in Tokyo average ¥100,000-150,000 ($750-1,100) per month, while other cities are typically 20-30% cheaper. Total annual cost ranges from $12,000-25,000.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-white/10 backdrop-blur-md rounded-xl overflow-hidden">
+                        <button onclick="toggleFAQ(2)" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-white/5 transition-colors">
+                            <h3 class="text-lg font-semibold">Do I need to know Japanese to study in Japan?</h3>
+                            <i class="fas fa-chevron-down text-gray-300 transform transition-transform duration-200"></i>
+                        </button>
+                        <div class="faq-content hidden px-8 pb-6">
+                            <p>While many programs require Japanese proficiency, there are increasing numbers of English-taught programs (called "Global Programs") available at major universities. However, basic Japanese knowledge is highly recommended for daily life, part-time work, and better integration. We provide comprehensive Japanese language training to help you succeed both academically and socially.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-white/10 backdrop-blur-md rounded-xl overflow-hidden">
+                        <button onclick="toggleFAQ(3)" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-white/5 transition-colors">
+                            <h3 class="text-lg font-semibold">What scholarships are available for international students?</h3>
+                            <i class="fas fa-chevron-down text-gray-300 transform transition-transform duration-200"></i>
+                        </button>
+                        <div class="faq-content hidden px-8 pb-6">
+                            <p>Several scholarship options are available: MEXT (Japanese Government) Scholarship covers full tuition plus monthly allowance of ¥117,000-148,000, JASSO scholarships provide ¥48,000-80,000 monthly, university-specific scholarships, and private foundation scholarships. We help identify and apply for scholarships that match your profile and significantly reduce your financial burden.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-white/10 backdrop-blur-md rounded-xl overflow-hidden">
+                        <button onclick="toggleFAQ(4)" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-white/5 transition-colors">
+                            <h3 class="text-lg font-semibold">How long does the visa application process take?</h3>
+                            <i class="fas fa-chevron-down text-gray-300 transform transition-transform duration-200"></i>
+                        </button>
+                        <div class="faq-content hidden px-8 pb-6">
+                            <p>The student visa process typically takes 3-6 months total. First, the university applies for your Certificate of Eligibility (COE) which takes 1-3 months. Once you receive the COE, the actual visa application at the Japanese embassy/consulate takes 5-10 working days. We recommend starting the process 6 months before your intended departure date to ensure smooth processing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-white/10 backdrop-blur-md rounded-xl overflow-hidden">
+                        <button onclick="toggleFAQ(5)" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-white/5 transition-colors">
+                            <h3 class="text-lg font-semibold">Can I work part-time while studying in Japan?</h3>
+                            <i class="fas fa-chevron-down text-gray-300 transform transition-transform duration-200"></i>
+                        </button>
+                        <div class="faq-content hidden px-8 pb-6">
+                            <p>Yes, international students can work part-time with proper permission. You need to obtain a "Permission to Engage in Activity Other than that Permitted under the Status of Residence" from immigration. Students can work up to 28 hours per week (8 hours per day during holidays). Part-time jobs typically pay ¥900-1,200 per hour, helping cover living expenses while gaining valuable work experience.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-white/10 backdrop-blur-md rounded-xl overflow-hidden">
+                        <button onclick="toggleFAQ(6)" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-white/5 transition-colors">
+                            <h3 class="text-lg font-semibold">What support do you provide after I arrive in Japan?</h3>
+                            <i class="fas fa-chevron-down text-gray-300 transform transition-transform duration-200"></i>
+                        </button>
+                        <div class="faq-content hidden px-8 pb-6">
+                            <p>Our support continues after your arrival! We provide airport pickup assistance, help with initial accommodation setup, guidance for opening bank accounts and getting phone connections, assistance with residence registration and health insurance, ongoing academic and personal counseling, job search support for part-time work, and 24/7 emergency contact support. We're committed to your success throughout your entire journey in Japan.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <p class="mb-6">Still have questions? We're here to help!</p>
+                    <button onclick="scrollToSection('contact')" class="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-full font-semibold transition-all transform hover:scale-105">
+                        Contact Our Experts
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-red-500 to-orange-400">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Start Your Journey?</h2>
+            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                Join thousands of successful students who have achieved their dreams of studying in Japan with our expert guidance.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="scrollToSection('contact')" class="bg-white text-red-500 hover:bg-gray-100 px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105">
+                    Get Free Consultation
+                </button>
+                <button onclick="openScheduler()" class="border-2 border-white text-white hover:bg-white hover:text-red-500 px-8 py-4 rounded-full text-lg font-semibold transition-all">
+                    Schedule Appointment
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-contact text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-xl max-w-2xl mx-auto">Ready to begin your journey to Japan? Contact us today for a free consultation.</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-blue-700 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Visit Our Office</h3>
+                                <p>Kathmandu Plaza, Kamaladi<br>Kathmandu, Nepal</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Call Us</h3>
+                                <p>+977-1-4444444<br>+977-9841234567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Email Us</h3>
+                                <p>info@mountfujiconsultancy.com<br>support@mountfujiconsultancy.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Office Hours</h3>
+                                <p>Sunday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Full Name</label>
+                                <input type="text" id="contactName" required class="w-full px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Email</label>
+                                <input type="email" id="contactEmail" required class="w-full px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Phone</label>
+                                <input type="tel" id="contactPhone" required class="w-full px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Preferred Study Level</label>
+                                <select id="contactStudyLevel" class="w-full px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <option>Bachelor's Degree</option>
+                                    <option>Master's Degree</option>
+                                    <option>PhD</option>
+                                    <option>Language School</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Message</label>
+                            <textarea id="contactMessage" rows="4" class="w-full px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tell us about your study goals and any questions you have..."></textarea>
+                        </div>
+                        
+                        <button type="button" onclick="toggleInquiryOptions()" class="w-full bg-red-500 hover:bg-red-600 py-3 rounded-lg font-semibold transition-colors">
+                            Send Inquiry
+                        </button>
+                        
+                        <div id="inquiryOptions" class="inquiry-options">
+                            <button type="submit" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold transition-colors mr-2">
+                                <i class="fas fa-envelope mr-2"></i> Email
+                            </button>
+                            <button type="button" onclick="sendViaWhatsApp()" class="flex-1 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg font-semibold transition-colors">
+                                <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-r from-red-500 to-orange-400 rounded-full flex items-center justify-center">
+                            <i class="fas fa-mountain text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold">Mount Fuji Consultancy</span>
+                    </div>
+                    <p class="text-blue-200 mb-6">Your trusted partner for studying in Japan. Expert guidance, personalized support, and proven success.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-icon bg-blue-700">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon bg-pink-600">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon bg-blue-400">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon bg-blue-800">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-blue-200 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-blue-200 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#services" class="text-blue-200 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#testimonials" class="text-blue-200 hover:text-white transition-colors">Testimonials</a></li>
+                        <li><a href="#contact" class="text-blue-200 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><span class="text-blue-200">University Applications</span></li>
+                        <li><span class="text-blue-200">Visa Processing</span></li>
+                        <li><span class="text-blue-200">Language Training</span></li>
+                        <li><span class="text-blue-200">Accommodation</span></li>
+                        <li><span class="text-blue-200">Career Guidance</span></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Resources</h3>
+                    <ul class="space-y-3">
+                        <li><span class="text-blue-200">Study in Japan Guide</span></li>
+                        <li><span class="text-blue-200">University Rankings</span></li>
+                        <li><span class="text-blue-200">Scholarship Information</span></li>
+                        <li><span class="text-blue-200">Cultural Tips</span></li>
+                        <li><span class="text-blue-200">FAQ</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-blue-800 mt-12 pt-8 text-center">
+                <p class="text-blue-200">&copy; 2024 Mount Fuji Consultancy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Appointment Scheduler Modal -->
+    <div id="schedulerModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-blue-900">Schedule Appointment</h3>
+                <button onclick="closeScheduler()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form id="appointmentForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                    <input type="tel" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Date</label>
+                    <input type="date" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Time</label>
+                    <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="">Select Time</option>
+                        <option value="09:00">9:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="14:00">2:00 PM</option>
+                        <option value="15:00">3:00 PM</option>
+                        <option value="16:00">4:00 PM</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg font-semibold transition-colors">
+                    Schedule Appointment
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('navbar-scroll');
+            } else {
+                navbar.classList.remove('navbar-scroll');
+            }
+        });
+
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Timeline animation on scroll
+        function animateTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const slideRight = document.querySelector('.slide-right');
+            
+            timelineItems.forEach((item, index) => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.8) {
+                    setTimeout(() => {
+                        item.classList.add('animate');
+                    }, index * 200);
+                }
+            });
+            
+            // Animate stats section
+            const rect = slideRight.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.8) {
+                slideRight.classList.add('animate');
+                animateCounters();
+                animateProgressBars();
+            }
+        }
+
+        window.addEventListener('scroll', animateTimeline);
+
+        // Counter animation
+        function animateCounters() {
+            document.querySelectorAll('.counter').forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const increment = target / 100; // adjust speed here
+
+                function updateCounter() {
+                    if (count < target) {
+                        count += increment;
+                        counter.innerText = Math.ceil(count);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target;
+                    }
+                }
+                updateCounter();
+            });
+        }
+
+        // Progress bar animation
+        function animateProgressBars() {
+            document.querySelectorAll('.progress-bar').forEach(bar => {
+                const progress = bar.style.getPropertyValue('--progress');
+                setTimeout(() => {
+                    bar.style.width = progress;
+                }, 200); // slight delay for smoothness
+            });
+        }
+
+        // Testimonial carousel
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        const totalTestimonials = testimonials.length;
+
+        function showTestimonial(index) {
+            const track = document.getElementById('testimonialTrack');
+            track.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+            showTestimonial(currentTestimonial);
+        }
+
+        function previousTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
+            showTestimonial(currentTestimonial);
+        }
+
+        // Auto-rotate testimonials
+        setInterval(nextTestimonial, 5000);
+
+        // Appointment scheduler
+        function openScheduler() {
+            document.getElementById('schedulerModal').classList.remove('hidden');
+        }
+
+        function closeScheduler() {
+            document.getElementById('schedulerModal').classList.add('hidden');
+        }
+
+        // Form submissions
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you within 24 hours.');
+            this.reset();
+        });
+
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Your appointment has been scheduled! We will send you a confirmation email shortly.');
+            closeScheduler();
+            this.reset();
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('schedulerModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeScheduler();
+            }
+        });
+
+        // FAQ functionality
+        function toggleFAQ(index) {
+            const faqItems = document.querySelectorAll('.faq-item');
+            const currentItem = faqItems[index];
+            const content = currentItem.querySelector('.faq-content');
+            const icon = currentItem.querySelector('i');
+            
+            // Close all other FAQs
+            faqItems.forEach((item, i) => {
+                if (i !== index) {
+                    const otherContent = item.querySelector('.faq-content');
+                    const otherIcon = item.querySelector('i');
+                    otherContent.classList.add('hidden');
+                    otherIcon.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current FAQ
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // WhatsApp integration for contact form
+        function sendViaWhatsApp() {
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const phone = document.getElementById('contactPhone').value;
+            const studyLevel = document.getElementById('contactStudyLevel').value;
+            const message = document.getElementById('contactMessage').value;
+            
+            if (!name || !email || !phone) {
+                alert('Please fill in the required fields (Name, Email, Phone) before sending via WhatsApp.');
+                return;
+            }
+            
+            const whatsappMessage = `Hello Mount Fuji Consultancy,%0A%0AI would like to inquire about your services.%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Preferred Study Level:* ${studyLevel}%0A*Message:* ${message}`;
+            
+            window.open(`https://wa.me/9779841234567?text=${whatsappMessage}`, '_blank');
+        }
+
+        // Toggle inquiry options
+        function toggleInquiryOptions() {
+            const options = document.getElementById('inquiryOptions');
+            options.classList.toggle('show');
+        }
+
+        // Notice card functionality
+        function showNotice() {
+            setTimeout(() => {
+                document.querySelector('.notice-card').classList.add('show');
+            }, 2000);
+        }
+
+        function closeNotice() {
+            document.querySelector('.notice-card').classList.remove('show');
+        }
+
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            animateTimeline();
+            showNotice();
+        });
+    </script>
+</body>
+</html>
