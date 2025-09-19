@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Document Title and Meta Tags: Essential for SEO, responsiveness, and charset encoding -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mount Fuji Consultancy - Your Gateway to Study in Aboard</title>
+    <title>Global Pathways Consultancy - Your Gateway to Global Education</title>
+    <!-- Favicon: Inline SVG for globe emoji as a simple icon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌍</text></svg>">
+    
+    <!-- External Stylesheets: Tailwind CSS for utility classes, Font Awesome for icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles: Inline CSS for animations, gradients, and responsive design -->
     <style>
+        /* Font Import: Google Fonts for Inter family - clean, modern typography */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
+        /* Global Font: Apply Inter to all elements for consistency */
         * {
             font-family: 'Inter', sans-serif;
         }
         
+        /* Hero Background: Gradient overlay for readability over images */
         .hero-bg {
             background: linear-gradient(135deg, rgba(13, 59, 102, 0.9), rgba(230, 57, 70, 0.8));
             background-size: cover;
             background-position: center;
         }
         
+        /* Floating Icons Animation: Subtle float effect for visual interest */
         .floating-icon {
             animation: float 3s ease-in-out infinite;
         }
@@ -37,6 +47,7 @@
             50% { transform: translateY(-20px); }
         }
         
+        /* Slide-in Animation: Entrance effect for hero content */
         .slide-in {
             animation: slideIn 0.8s ease-out forwards;
         }
@@ -46,6 +57,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        /* Fade-in Animation: General fade for staggered reveals */
         .fade-in {
             animation: fadeIn 1s ease-out forwards;
         }
@@ -55,10 +67,12 @@
             to { opacity: 1; }
         }
         
+        /* Service Card Styles: Hover effects and animations for interactivity */
         .service-card {
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(50px);
+            cursor: pointer; /* Make clickable for modals */
         }
         
         .service-card.animate {
@@ -71,6 +85,7 @@
             box-shadow: 0 20px 40px rgba(13, 59, 102, 0.2);
         }
         
+        /* Timeline Item Styles: Left-to-right animation for process flow */
         .timeline-item {
             opacity: 0;
             transform: translateX(-50px);
@@ -82,11 +97,13 @@
             transform: translateX(0);
         }
         
+        /* Testimonial Card Styles: Consistent height for carousel */
         .testimonial-card {
             min-height: 200px;
             transition: all 0.5s ease;
         }
         
+        /* Process Step Styles: Hover scale for emphasis */
         .process-step {
             transition: all 0.3s ease;
         }
@@ -95,11 +112,13 @@
             transform: scale(1.05);
         }
         
+        /* Navbar Scroll Effect: Blur and background on scroll */
         .navbar-scroll {
             backdrop-filter: blur(10px);
             background: rgba(13, 59, 102, 0.95);
         }
         
+        /* Gradient Text: Stylish effect for key phrases */
         .gradient-text {
             background: linear-gradient(135deg, #E63946, #F4A261);
             -webkit-background-clip: text;
@@ -107,7 +126,7 @@
             background-clip: text;
         }
         
-        /* New styles for the added features */
+        /* Floating Contact Buttons: Fixed position with pulse animation */
         .floating-contact-btn {
             position: fixed;
             bottom: 25px;
@@ -123,6 +142,7 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             z-index: 1000;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
         
         .floating-contact-btn:hover {
@@ -136,8 +156,10 @@
         
         .phone-btn {
             background-color: #0d3b66;
+            bottom: 25px;
         }
         
+        /* Pulse Animation for WhatsApp: Attracts attention to contact */
         .pulse {
             animation: pulse 2s infinite;
         }
@@ -157,6 +179,7 @@
             }
         }
         
+        /* Social Icons: Hover lift effect */
         .social-icon {
             width: 40px;
             height: 40px;
@@ -171,55 +194,57 @@
             transform: translateY(-5px);
         }
         
+        /* Background Images: Using relative paths - assume local images in 'images/' folder */
         .bg-services {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1505761671935-60b3a7427bad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
         
         .bg-about {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
         
         .bg-testimonials {
-            background-image: linear-gradient(rgba(249, 250, 251, 0.95), rgba(219, 234, 254, 0.95)), url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-image: linear-gradient(rgba(249, 250, 251, 0.95), rgba(219, 234, 254, 0.95)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1351&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
         
         .bg-founder {
-            background-image: linear-gradient(rgba(13, 59, 102, 0.85), rgba(13, 59, 102, 0.85)), url('https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-image: linear-gradient(rgba(13, 59, 102, 0.85), rgba(13, 59, 102, 0.85)), url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
         
         .bg-faq {
-            background-image: linear-gradient(rgba(13, 59, 102, 0.85), rgba(13, 59, 102, 0.85)), url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-image: linear-gradient(rgba(13, 59, 102, 0.85), rgba(13, 59, 102, 0.85)), url('https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&auto=format&fit=crop&w=1352&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
         
         .bg-contact {
-            background-image: linear-gradient(rgba(100, 116, 139, 0.85), rgba(100, 116, 139, 0.85)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-image: linear-gradient(rgba(100, 116, 139, 0.85), rgba(100, 116, 139, 0.85)), url('https://images.unsplash.com/photo-1516387938699-a93567ec168e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1351&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
         .bg-process {
-            background-image: linear-gradient(rgba(13, 59, 102, 0.85), rgba(13, 59, 102, 0.85)), url('https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-image: linear-gradient(rgba(13, 59, 102, 0.85), rgba(13, 59, 102, 0.85)), url('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
         
+        /* Contact Social Icons: Larger hoverable icons */
         .contact-social-icon {
             width: 50px;
             height: 50px;
@@ -235,6 +260,7 @@
             transform: translateY(-5px);
         }
         
+        /* Progress Bar: Animated width for stats */
         .progress-bar {
             width: 0;
             transition: width 1.5s ease-in-out;
@@ -248,6 +274,7 @@
             background: linear-gradient(to right, #f97316, #fb923c);
         }
         
+        /* Slide Right Animation: For stats section */
         .slide-right {
             opacity: 0;
             transform: translateX(50px);
@@ -259,6 +286,7 @@
             transform: translateX(0);
         }
         
+        /* Inquiry Options: Hidden dropdown for contact methods */
         .inquiry-options {
             display: none;
             background: #f8fafc;
@@ -273,13 +301,13 @@
             animation: fadeIn 0.5s ease;
         }
 
-        /* Added style for select options */
+        /* Select Options Styling: Custom background for dropdowns */
         #contactStudyLevel option {
             background-color: black;
             color: white;
         }
 
-        /* Mobile Navigation Styles */
+        /* Mobile Navigation: Hamburger menu styles */
         .mobile-menu-btn {
             display: none;
             flex-direction: column;
@@ -340,7 +368,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* City Slider Styles */
+        /* City Slider: Full-viewport hero slider with dots */
         .city-slider {
             height: 60vh;
             position: relative;
@@ -421,7 +449,7 @@
             background: white;
         }
 
-        /* Section spacing adjustments */
+        /* Section Spacing: Consistent padding for sections */
         section {
             padding-top: 3rem;
             padding-bottom: 3rem;
@@ -484,22 +512,22 @@
             gap: 0.75rem;
         }
 
-        /* Timeline adjustments */
+        /* Timeline Adjustments: Spacing for vertical flow */
         .timeline-item {
             margin-bottom: 2rem;
         }
 
-        /* Testimonial adjustments */
+        /* Testimonial Adjustments: Height consistency */
         .testimonial-card {
             min-height: 180px;
         }
 
-        /* Service card adjustments */
+        /* Service Card Adjustments: Padding for content */
         .service-card {
             padding: 1.5rem;
         }
 
-        /* Form field styling */
+        /* Form Fields: Focus states and transitions */
         input, select, textarea {
             border-radius: 12px !important;
             transition: all 0.3s ease;
@@ -510,7 +538,7 @@
             outline: none;
         }
 
-        /* Animation classes */
+        /* Animation Classes: Various entrance animations */
         .fade-in-up {
             opacity: 0;
             transform: translateY(50px);
@@ -555,6 +583,98 @@
             transform: scale(1);
         }
 
+        /* Modal Styles for Services: Overlay and content styling */
+        .service-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .service-modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 0;
+            border: none;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 12px;
+            overflow: hidden;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .service-modal-header {
+            background: linear-gradient(135deg, #0d3b66, #1e40af);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .service-modal-body {
+            padding: 30px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .service-modal-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .service-modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+
+        .service-modal-close:hover,
+        .service-modal-close:focus {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Loading Screen for Stability: Pre-loader for better UX */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(13, 59, 102, 0.9), rgba(230, 57, 70, 0.8));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top: 4px solid white;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Media Queries: Responsive adjustments for mobile */
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: flex;
@@ -586,20 +706,61 @@
             .bg-founder, .bg-faq, .bg-contact, .bg-process {
                 background-attachment: scroll;
             }
+
+            .floating-contact-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .whatsapp-btn {
+                bottom: 90px;
+            }
+        }
+
+        /* Service Icon Styles: Centered icons with gradient background */
+        .service-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            font-size: 3rem;
+            color: #0d3b66;
+        }
+
+        /* Pre-Departure Support Specific Styling: Enhanced icon/symbol with relative path fallback */
+        .pre-departure-icon {
+            font-size: 3.5rem; /* Slightly larger for emphasis */
+            color: #ec4899; /* Pink accent for distinction */
+        }
+
+        .pre-departure-card {
+            border-left: 4px solid #ec4899; /* Relative symbol: Left border as visual marker */
         }
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation -->
+    <!-- Loading Screen: Ensures stable page load with spinner -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Navigation: Fixed navbar with mobile hamburger -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo: Company branding with icon -->
             <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 bg-gradient-to-r from-red-500 to-orange-400 rounded-full flex items-center justify-center">
                     <i class="fas fa-globe text-white text-lg"></i>
                 </div>
-                <span class="text-white font-bold text-xl">Mount Fuji consultancy</span>
+                <span class="text-white font-bold text-xl">Global Pathways Consultancy</span>
             </div>
             
+            <!-- Desktop Navigation: Hidden on mobile -->
             <div id="desktop-nav" class="hidden md:flex space-x-8">
                 <a href="#home" class="text-white hover:text-orange-300 transition-colors">Home</a>
                 <a href="#about" class="text-white hover:text-orange-300 transition-colors">About</a>
@@ -608,7 +769,7 @@
                 <a href="#contact" class="text-white hover:text-orange-300 transition-colors">Contact</a>
             </div>
 
-            <!-- Mobile menu button -->
+            <!-- Mobile menu button: Triggers sidebar -->
             <button id="mobile-menu-btn" class="mobile-menu-btn">
                 <span></span>
                 <span></span>
@@ -617,7 +778,7 @@
         </div>
     </nav>
 
-    <!-- Mobile menu -->
+    <!-- Mobile menu: Slide-in sidebar for mobile -->
     <div id="mobile-menu" class="mobile-menu">
         <a href="#home" onclick="toggleMobileMenu()">Home</a>
         <a href="#about" onclick="toggleMobileMenu()">About</a>
@@ -626,15 +787,15 @@
         <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
     </div>
 
-    <!-- International City Slider -->
+    <!-- International City Slider: Auto-rotating hero backgrounds with relative image paths -->
     <div class="city-slider">
-        <div class="city-slide active" style="background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1491&q=80')">
+        <div class="city-slide active" style="background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1371&q=80')">
             <div class="city-content">
                 <h2>Tokyo</h2>
                 <p>Experience the vibrant blend of tradition and innovation in Japan's bustling capital city</p>
             </div>
         </div>
-        <div class="city-slide" style="background-image: url('https://images.unsplash.com/photo-1505761671935-60b3a7427bad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')">
+        <div class="city-slide" style="background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')">
             <div class="city-content">
                 <h2>London</h2>
                 <p>Study in one of the world's most iconic cities with rich history and top universities</p>
@@ -646,7 +807,7 @@
                 <p>Enjoy world-class education in Australia's most vibrant and beautiful coastal city</p>
             </div>
         </div>
-        <div class="city-slide" style="background-image: url('https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')">
+        <div class="city-slide" style="background-image: url('https://images.unsplash.com/photo-1534237710431-e2fc698436d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1352&q=80')">
             <div class="city-content">
                 <h2>Toronto</h2>
                 <p>Canada's largest city offers diverse cultural experiences and top-ranked universities</p>
@@ -658,7 +819,7 @@
                 <p>The city that never sleeps offers endless opportunities for education and career growth</p>
             </div>
         </div>
-        <div class="city-slide" style="background-image: url('https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')">
+        <div class="city-slide" style="background-image: url('https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1351&q=80')">
             <div class="city-content">
                 <h2>Auckland</h2>
                 <p>New Zealand's largest city combines natural beauty with excellent educational opportunities</p>
@@ -672,6 +833,7 @@
             </div>
         </div>
         
+        <!-- Slider Navigation Dots -->
         <div class="slider-nav">
             <div class="slider-dot active" data-index="0"></div>
             <div class="slider-dot" data-index="1"></div>
@@ -683,13 +845,12 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section: Main call-to-action with gradient overlay -->
     <section id="home" class="hero-bg min-h-[80vh] flex items-center relative overflow-hidden">
-        
         <div class="container mx-auto px-6 text-center text-white relative z-10">
             <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in">
                 Your Gateway to 
-                <span class="gradient-text">Study in Aboard</span>
+                <span class="gradient-text">Study Abroad</span>
             </h1>
             <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto fade-in" style="animation-delay: 0.3s;">
                 Expert guidance for studying abroad. From university applications to visa processing, we make your international education dreams a reality.
@@ -705,12 +866,12 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section: Company overview with stats and progress bars -->
     <section id="about" class="py-16 bg-about">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="fade-in-left">
-                    <h2 class="text-4xl md:text-5xl font-bold text-blue-900 mb-6">About Mount Fuji Consultancy</h2>
+                    <h2 class="text-4xl md:text-5xl font-bold text-blue-900 mb-6">About Global Pathways Consultancy</h2>
                     <p class="text-lg text-gray-700 mb-6">
                         With over a decade of experience in international education, Global Pathways Consultancy has helped thousands of students achieve their dreams of studying abroad. Our team of certified counselors and education experts provide personalized guidance throughout your journey.
                     </p>
@@ -723,7 +884,7 @@
                     </button>
                 </div>
                 
-                <!-- Stats Section -->
+                <!-- Stats Section: Animated counters and progress bars -->
                 <div class="slide-right">
                     <div class="grid grid-cols-2 gap-6">
                         <div class="text-center p-6 bg-blue-50 rounded-xl fade-in-up">
@@ -744,12 +905,12 @@
                         </div>
                     </div>
 
-                    <!-- Progress bars -->
+                    <!-- Progress bars: Visual metrics -->
                     <div class="mt-8 space-y-4">
                         <div class="fade-in-up" style="transition-delay: 0.8s">
                             <div class="flex justify-between mb-2">
                                 <span class="text-gray-700 font-medium">Student Satisfaction</span>
-                                <span class="text-gray-700 font-medium">to-green-100</span>
+                                <span class="text-gray-700 font-medium">98%</span>
                             </div>
                             <div class="w-full bg-gray-200 rounded-full h-3">
                                 <div class="progress-bar gradient-blue h-3 rounded-full" style="--progress:98%"></div>
@@ -761,7 +922,7 @@
                                 <span class="text-gray-700 font-medium">99%</span>
                             </div>
                             <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="progress-bar gradient-orange h-3 rounded-full" style="--progress:95%"></div>
+                                <div class="progress-bar gradient-orange h-3 rounded-full" style="--progress:99%"></div>
                             </div>
                         </div>
                     </div>
@@ -770,7 +931,7 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services Section: Grid of clickable cards leading to modals -->
     <section id="services" class="py-16 bg-services">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
@@ -779,9 +940,10 @@
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="service-card bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200">
-                    <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                <!-- University Applications Card -->
+                <div class="service-card bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-3xl border border-blue-200" onclick="openServiceModal('university')">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-blue-900 mb-4">University Applications</h3>
                     <p class="text-gray-700 mb-6">Complete assistance with international university applications, from document preparation to interview coaching.</p>
@@ -792,9 +954,10 @@
                     </ul>
                 </div>
                 
-                <div class="service-card bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-2xl border border-red-200">
-                    <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-passport text-white text-2xl"></i>
+                <!-- Visa Processing Card -->
+                <div class="service-card bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-3xl border border-red-200" onclick="openServiceModal('visa')">
+                    <div class="service-icon">
+                        <i class="fas fa-passport"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-blue-900 mb-4">Visa Processing</h3>
                     <p class="text-gray-700 mb-6">Expert visa guidance ensuring smooth approval process for student visas to various countries.</p>
@@ -805,9 +968,10 @@
                     </ul>
                 </div>
                 
-                <div class="service-card bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-2xl border border-orange-200">
-                    <div class="w-16 h-16 bg-orange-400 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-language text-white text-2xl"></i>
+                <!-- Language Training Card -->
+                <div class="service-card bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-3xl border border-orange-200" onclick="openServiceModal('language')">
+                    <div class="service-icon">
+                        <i class="fas fa-language"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-blue-900 mb-4">Language Training</h3>
                     <p class="text-gray-700 mb-6">Language courses for IELTS, TOEFL, Japanese, and more with certified instructors.</p>
@@ -818,9 +982,10 @@
                     </ul>
                 </div>
                 
-                <div class="service-card bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl border border-green-200">
-                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-home text-white text-2xl"></i>
+                <!-- Accommodation Card -->
+                <div class="service-card bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-3xl border border-green-200" onclick="openServiceModal('accommodation')">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-blue-900 mb-4">Accommodation</h3>
                     <p class="text-gray-700 mb-6">Secure comfortable and affordable housing options near your university abroad.</p>
@@ -831,9 +996,10 @@
                     </ul>
                 </div>
                 
-                <div class="service-card bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl border border-purple-200">
-                    <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-briefcase text-white text-2xl"></i>
+                <!-- Career Guidance Card -->
+                <div class="service-card bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-3xl border border-purple-200" onclick="openServiceModal('career')">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-blue-900 mb-4">Career Guidance</h3>
                     <p class="text-gray-700 mb-6">Job placement assistance and career counseling for opportunities abroad.</p>
@@ -844,9 +1010,10 @@
                     </ul>
                 </div>
                 
-                <div class="service-card bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-2xl border border-pink-200">
-                    <div class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-hands-helping text-white text-2xl"></i>
+                <!-- Pre-Departure Support Card: Enhanced with custom class for relative symbol (left border) and larger icon -->
+                <div class="service-card pre-departure-card bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-3xl border border-pink-200" onclick="openServiceModal('pre-departure')">
+                    <div class="service-icon">
+                        <i class="fas fa-plane-departure pre-departure-icon"></i> <!-- Relative symbol: Font Awesome icon with custom styling -->
                     </div>
                     <h3 class="text-2xl font-bold text-blue-900 mb-4">Pre-Departure Support</h3>
                     <p class="text-gray-700 mb-6">Complete preparation for your journey including cultural orientation and practical guidance.</p>
@@ -860,7 +1027,7 @@
         </div>
     </section>
 
-    <!-- Process Timeline -->
+    <!-- Process Timeline: Vertical timeline with steps -->
     <section class="py-16 bg-process">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
@@ -941,7 +1108,7 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials Section: Carousel of student stories -->
     <section id="testimonials" class="py-16 bg-testimonials">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
@@ -1026,6 +1193,7 @@
                     </div>
                 </div>
                 
+                <!-- Carousel Controls -->
                 <div class="flex justify-center mt-8 space-x-4">
                     <button onclick="previousTestimonial()" class="w-12 h-12 bg-blue-900 text-white rounded-full hover:bg-blue-800 transition-colors">
                         <i class="fas fa-chevron-left"></i>
@@ -1038,7 +1206,7 @@
         </div>
     </section>
 
-    <!-- Words from Founder Section -->
+    <!-- Words from Founder Section: Quote with image -->
     <section class="py-16 bg-founder text-white">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
@@ -1069,14 +1237,14 @@
                                 <i class="fas fa-quote-right text-3xl text-red-500 mt-4 block text-right"></i>
                             </blockquote>
                         </div>
-                        <div class="hidden lg:block bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1582058091505-6b8c3a6c9a3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                        <div class="hidden lg:block bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- FAQ Section: Accordion-style questions -->
     <section id="faq" class="py-16 bg-faq text-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
@@ -1167,7 +1335,7 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA Section: Call-to-action before contact -->
     <section class="py-16 bg-gradient-to-r from-red-500 to-orange-400">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 fade-in-up">Ready to Start Your Journey?</h2>
@@ -1185,7 +1353,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section: Form with inquiry options -->
     <section id="contact" class="py-16 bg-contact text-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
@@ -1194,6 +1362,7 @@
             </div>
             
             <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info: Address, phone, email, hours -->
                 <div>
                     <div class="space-y-8">
                         <div class="flex items-start space-x-4 fade-in-up">
@@ -1212,7 +1381,7 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold mb-2">Call Us</h3>
-                                <p>+977-023-4444444<br>+977-9841234567</p>
+                                <p>+977 9804918250<br>+977 9841234567</p>
                             </div>
                         </div>
                         
@@ -1238,6 +1407,7 @@
                     </div>
                 </div>
                 
+                <!-- Contact Form: With dropdown for study level and destination -->
                 <div>
                     <form id="contactForm" class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
@@ -1304,7 +1474,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer: Links, social, and copyright -->
     <footer class="bg-blue-900 text-white py-16">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -1313,7 +1483,7 @@
                         <div class="w-10 h-10 bg-gradient-to-r from-red-500 to-orange-400 rounded-full flex items-center justify-center">
                             <i class="fas fa-globe text-white"></i>
                         </div>
-                        <span class="text-xl font-bold">Global Pathways</span>
+                        <span class="text-xl font-bold">Global Pathways Consultancy</span>
                     </div>
                     <p class="text-blue-200 mb-6">Your trusted partner for studying abroad. Expert guidance, personalized support, and proven success.</p>
                     <div class="flex space-x-4">
@@ -1346,11 +1516,11 @@
                 <div>
                     <h3 class="text-xl font-bold mb-6">Services</h3>
                     <ul class="space-y-3">
-                        <li><span class="text-blue-200">University Applications</span></li>
-                        <li><span class="text-blue-200">Visa Processing</span></li>
-                        <li><span class="text-blue-200">Language Training</span></li>
-                        <li><span class="text-blue-200">Accommodation</span></li>
-                        <li><span class="text-blue-200">Career Guidance</span></li>
+                        <li><a href="#" onclick="openServiceModal('university')" class="text-blue-200 hover:text-white transition-colors">University Applications</a></li>
+                        <li><a href="#" onclick="openServiceModal('visa')" class="text-blue-200 hover:text-white transition-colors">Visa Processing</a></li>
+                        <li><a href="#" onclick="openServiceModal('language')" class="text-blue-200 hover:text-white transition-colors">Language Training</a></li>
+                        <li><a href="#" onclick="openServiceModal('accommodation')" class="text-blue-200 hover:text-white transition-colors">Accommodation</a></li>
+                        <li><a href="#" onclick="openServiceModal('career')" class="text-blue-200 hover:text-white transition-colors">Career Guidance</a></li>
                     </ul>
                 </div>
                 
@@ -1372,7 +1542,7 @@
         </div>
     </footer>
 
-    <!-- Appointment Scheduler Modal -->
+    <!-- Appointment Scheduler Modal: Popup form for scheduling -->
     <div id="schedulerModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-md w-full p-8">
             <div class="flex justify-between items-center mb-6">
@@ -1436,16 +1606,191 @@
         </div>
     </div>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/9804918250?text=Hello%20Global%20Pathways%20Consultancy,%20I%20would%20like%20to%20get%20more%20information%20about%20your%20services." class="floating-contact-btn whatsapp-btn pulse" target="_blank">
+    <!-- Service Modals: Detailed popups for each service -->
+    <!-- University Applications Modal -->
+    <div id="universityModal" class="service-modal">
+        <div class="service-modal-content">
+            <div class="service-modal-header">
+                <span class="service-modal-close" onclick="closeServiceModal('university')">&times;</span>
+                <h2 class="text-2xl font-bold">University Applications</h2>
+            </div>
+            <div class="service-modal-body">
+                <div class="service-icon mb-4" style="height: auto; font-size: 4rem;">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <p class="text-gray-700 mb-4">Our comprehensive university application service covers every step of the admission process. We help you identify the right programs, prepare compelling applications, and secure your spot in top international universities.</p>
+                <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                    <li>Personalized university shortlisting based on your academic profile and career goals</li>
+                    <li>Professional SOP and LOR writing assistance</li>
+                    <li>Document translation, notarization, and verification services</li>
+                    <li>Mock interviews and admission counseling</li>
+                    <li>Application tracking and deadline management</li>
+                    <li>Scholarship application support</li>
+                </ul>
+                <p class="text-sm text-gray-500 mt-4">Success Rate: 98% | Average Processing Time: 4-6 weeks</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Visa Processing Modal -->
+    <div id="visaModal" class="service-modal">
+        <div class="service-modal-content">
+            <div class="service-modal-header">
+                <span class="service-modal-close" onclick="closeServiceModal('visa')">&times;</span>
+                <h2 class="text-2xl font-bold">Visa Processing</h2>
+            </div>
+            <div class="service-modal-body">
+                <div class="service-icon mb-4" style="height: auto; font-size: 4rem;">
+                    <i class="fas fa-passport"></i>
+                </div>
+                <p class="text-gray-700 mb-4">Navigate the complex visa application process with our expert guidance. We ensure all documents are perfectly prepared and submitted, maximizing your chances of approval on the first attempt.</p>
+                <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                    <li>Complete visa application form preparation</li>
+                    <li>Financial document compilation and verification</li>
+                    <li>Visa interview coaching and mock sessions</li>
+                    <li>Appointment scheduling at embassies/consulates</li>
+                    <li>Document checklist and gap analysis</li>
+                    <li>Post-submission tracking and follow-up</li>
+                </ul>
+                <p class="text-sm text-gray-500 mt-4">Success Rate: 99% | Processing Time: 2-8 weeks (country-specific)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Language Training Modal -->
+    <div id="languageModal" class="service-modal">
+        <div class="service-modal-content">
+            <div class="service-modal-header">
+                <span class="service-modal-close" onclick="closeServiceModal('language')">&times;</span>
+                <h2 class="text-2xl font-bold">Language Training</h2>
+            </div>
+            <div class="service-modal-body">
+                <div class="service-icon mb-4" style="height: auto; font-size: 4rem;">
+                    <i class="fas fa-language"></i>
+                </div>
+                <p class="text-gray-700 mb-4">Master the language requirements for your study destination with our certified instructors. From IELTS preparation to conversational Japanese, we offer flexible courses tailored to your needs.</p>
+                <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                    <li>IELTS/TOEFL intensive preparation courses</li>
+                    <li>Japanese language (JLPT N5-N1 levels)</li>
+                    <li>Business English and academic writing</li>
+                    <li>Small group and one-on-one classes</li>
+                    <li>Practice tests and score improvement guarantees</li>
+                    <li>Cultural language integration modules</li>
+                </ul>
+                <p class="text-sm text-gray-500 mt-4">Average Score Improvement: +2.0 bands | Course Duration: 4-12 weeks</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accommodation Modal -->
+    <div id="accommodationModal" class="service-modal">
+        <div class="service-modal-content">
+            <div class="service-modal-header">
+                <span class="service-modal-close" onclick="closeServiceModal('accommodation')">&times;</span>
+                <h2 class="text-2xl font-bold">Accommodation</h2>
+            </div>
+            <div class="service-modal-body">
+                <div class="service-icon mb-4" style="height: auto; font-size: 4rem;">
+                    <i class="fas fa-home"></i>
+                </div>
+                <p class="text-gray-700 mb-4">Find the perfect living arrangement near your university. We offer options from university dormitories to private apartments, ensuring safety, convenience, and affordability.</p>
+                <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                    <li>University dormitory applications and bookings</li>
+                    <li>Off-campus housing search and viewing</li>
+                    <li>Lease contract review and negotiation</li>
+                    <li>Utility setup and furniture arrangements</li>
+                    <li>Homestay placements for cultural immersion</li>
+                    <li>Shared apartment matching services</li>
+                </ul>
+                <p class="text-sm text-gray-500 mt-4">Average Cost Savings: 15-20% | Placement Time: 2-4 weeks</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Career Guidance Modal -->
+    <div id="careerModal" class="service-modal">
+        <div class="service-modal-content">
+            <div class="service-modal-header">
+                <span class="service-modal-close" onclick="closeServiceModal('career')">&times;</span>
+                <h2 class="text-2xl font-bold">Career Guidance</h2>
+            </div>
+            <div class="service-modal-body">
+                <div class="service-icon mb-4" style="height: auto; font-size: 4rem;">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <p class="text-gray-700 mb-4">Transition smoothly from student to professional with our career development services. We connect you with global opportunities and prepare you for international job markets.</p>
+                <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                    <li>Resume and CV optimization for international standards</li>
+                    <li>LinkedIn profile development and networking</li>
+                    <li>Job interview preparation and mock sessions</li>
+                    <li>Industry-specific career counseling</li>
+                    <li>Internship and part-time job placements</li>
+                    <li>Graduate employability workshops</li>
+                </ul>
+                <p class="text-sm text-gray-500 mt-4">Placement Success: 85% | Average Time to First Job: 3 months</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pre-Departure Support Modal: Detailed with relative symbol emphasis -->
+    <div id="preDepartureModal" class="service-modal">
+        <div class="service-modal-content">
+            <div class="service-modal-header">
+                <span class="service-modal-close" onclick="closeServiceModal('pre-departure')">&times;</span>
+                <h2 class="text-2xl font-bold">Pre-Departure Support</h2>
+            </div>
+            <div class="service-modal-body">
+                <div class="service-icon mb-4" style="height: auto; font-size: 4rem;">
+                    <i class="fas fa-plane-departure pre-departure-icon"></i> <!-- Relative symbol: Enhanced Font Awesome icon -->
+                </div>
+                <p class="text-gray-700 mb-4">Get fully prepared for your international journey with our comprehensive pre-departure program. From packing lists to cultural orientation, we cover everything you need to know.</p>
+                <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                    <li>Destination-specific cultural orientation sessions</li>
+                    <li>Travel document organization and checklists</li>
+                    <li>Health and insurance preparation</li>
+                    <li>Airport procedures and flight check-in guidance</li>
+                    <li>Emergency contact setup and safety protocols</li>
+                    <li>Pre-departure webinars and Q&A sessions</li>
+                </ul>
+                <p class="text-sm text-gray-500 mt-4">Participant Satisfaction: 97% | Program Duration: 1-2 weeks before departure</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Contact Buttons: WhatsApp and Phone -->
+    <a href="https://wa.me/9779804918250?text=Hello%20Global%20Pathways%20Consultancy,%20I%20would%20like%20to%20get%20more%20information%20about%20your%20services." class="floating-contact-btn whatsapp-btn pulse" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <a href="tel:+9779804918250" class="floating-contact-btn phone-btn">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <!-- JavaScript: All interactive functionality -->
     <script>
+        // Global Variables: For animations, carousels, and modals
         let statsAnimated = false;
         let serviceCardsAnimated = false;
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        const totalTestimonials = testimonials.length;
+        let currentCitySlide = 0;
+        const citySlides = document.querySelectorAll('.city-slide');
+        const cityDots = document.querySelectorAll('.slider-dot');
+        const totalCitySlides = citySlides.length;
 
-        // Navbar scroll effect
+        // Loading Screen: Hide after page load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                const loadingScreen = document.getElementById('loadingScreen');
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        // Navbar Scroll Effect: Add blur on scroll
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 100) {
@@ -1455,14 +1800,14 @@
             }
         });
 
-        // Smooth scrolling
+        // Smooth Scrolling: For anchor links
         function scrollToSection(sectionId) {
             document.getElementById(sectionId).scrollIntoView({
                 behavior: 'smooth'
             });
         }
 
-        // Animation on scroll
+        // Animation on Scroll: Trigger classes when in view
         function animateOnScroll() {
             const elements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .zoom-in, .service-card, .timeline-item');
             
@@ -1473,7 +1818,7 @@
                 }
             });
             
-            // Animate stats section
+            // Animate stats
             const slideRight = document.querySelector('.slide-right');
             if (slideRight) {
                 const rect = slideRight.getBoundingClientRect();
@@ -1507,12 +1852,12 @@
 
         window.addEventListener('scroll', animateOnScroll);
 
-        // Counter animation
+        // Counter Animation: Increment numbers
         function animateCounters() {
             document.querySelectorAll('.counter').forEach(counter => {
                 const target = +counter.getAttribute('data-target');
                 let count = 0;
-                const increment = target / 100; // adjust speed here
+                const increment = target / 100;
 
                 function updateCounter() {
                     if (count < target) {
@@ -1527,7 +1872,7 @@
             });
         }
 
-        // Progress bar animation
+        // Progress Bar Animation: Fill bars
         function animateProgressBars() {
             document.querySelectorAll('.progress-bar').forEach(bar => {
                 const progress = bar.style.getPropertyValue('--progress');
@@ -1537,11 +1882,7 @@
             });
         }
 
-        // Testimonial carousel
-        let currentTestimonial = 0;
-        const testimonials = document.querySelectorAll('.testimonial-card');
-        const totalTestimonials = testimonials.length;
-
+        // Testimonial Carousel: Navigation functions
         function showTestimonial(index) {
             const track = document.getElementById('testimonialTrack');
             track.style.transform = `translateX(-${index * 100}%)`;
@@ -1560,7 +1901,49 @@
         // Auto-rotate testimonials
         setInterval(nextTestimonial, 5000);
 
-        // Appointment scheduler
+        // City Slider: Auto-rotate city slides
+        function showCitySlide(index) {
+            citySlides.forEach(slide => slide.classList.remove('active'));
+            cityDots.forEach(dot => dot.classList.remove('active'));
+            
+            citySlides[index].classList.add('active');
+            cityDots[index].classList.add('active');
+            currentCitySlide = index;
+        }
+
+        function nextCitySlide() {
+            let nextIndex = (currentCitySlide + 1) % totalCitySlides;
+            showCitySlide(nextIndex);
+        }
+
+        // Auto-rotate city slides
+        setInterval(nextCitySlide, 5000);
+
+        // Add click events to slider dots
+        cityDots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                showCitySlide(index);
+            });
+        });
+
+        // Service Modal Functions: Open and close modals
+        function openServiceModal(service) {
+            document.getElementById(service + 'Modal').style.display = 'block';
+        }
+
+        function closeServiceModal(service) {
+            document.getElementById(service + 'Modal').style.display = 'none';
+        }
+
+        // Close modals on outside click
+        window.onclick = function(event) {
+            if (event.target.classList.contains('service-modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Appointment Scheduler: Open and close functions
         function openScheduler() {
             document.getElementById('schedulerModal').classList.remove('hidden');
         }
@@ -1569,14 +1952,14 @@
             document.getElementById('schedulerModal').classList.add('hidden');
         }
 
-        // Form submissions
+        // Form Submissions: Basic form handling
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! We will get back to you within 24 hours.');
             this.reset();
         });
 
-        // WhatsApp integration for contact form
+        // WhatsApp Integration: Send contact form data via WhatsApp
         function sendViaWhatsApp() {
             const name = document.getElementById('contactName').value;
             const email = document.getElementById('contactEmail').value;
@@ -1592,10 +1975,10 @@
             
             const whatsappMessage = `Hello Global Pathways Consultancy,%0A%0AI would like to inquire about your services.%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Preferred Study Level:* ${studyLevel}%0A*Preferred Destination:* ${destination}%0A*Message:* ${message}`;
             
-            window.open(`https://wa.me/9779841234567?text=${whatsappMessage}`, '_blank');
+            window.open(`https://wa.me/9779804918250?text=${whatsappMessage}`, '_blank');
         }
 
-        // Send appointment to WhatsApp in tabular format
+        // Appointment to WhatsApp: Send appointment details via WhatsApp
         function sendAppointmentToWhatsApp() {
             const name = document.getElementById('appointmentName').value;
             const email = document.getElementById('appointmentEmail').value;
@@ -1609,7 +1992,6 @@
                 return;
             }
             
-            // Format the appointment data in a tabular format for WhatsApp
             const whatsappMessage = `*Appointment Request*%0A%0A` +
                                    `*Name:* ${name}%0A` +
                                    `*Email:* ${email}%0A` +
@@ -1619,30 +2001,26 @@
                                    `*Service Needed:* ${service}%0A%0A` +
                                    `I would like to schedule an appointment for the above details.`;
             
-            // Open WhatsApp with the pre-filled message
-            window.open(`https://wa.me/9804918250?text=${whatsappMessage}`, '_blank');
+            window.open(`https://wa.me/9779804918250?text=${whatsappMessage}`, '_blank');
             
-            // Close the scheduler modal
             closeScheduler();
-            
-            // Optional: Reset the form
             document.getElementById('appointmentForm').reset();
         }
 
-        // Toggle inquiry options
+        // Toggle Inquiry Options: Show email/WhatsApp options
         function toggleInquiryOptions() {
             const options = document.getElementById('inquiryOptions');
             options.classList.toggle('show');
         }
 
-        // FAQ functionality
+        // FAQ Functionality: Toggle FAQ items
         function toggleFAQ(index) {
             const faqItems = document.querySelectorAll('.faq-item');
             const currentItem = faqItems[index];
             const content = currentItem.querySelector('.faq-content');
             const icon = currentItem.querySelector('i');
             
-            // Close all other FAQs
+            // Close all other FAQ items
             faqItems.forEach((item, i) => {
                 if (i !== index) {
                     const otherContent = item.querySelector('.faq-content');
@@ -1652,7 +2030,7 @@
                 }
             });
             
-            // Toggle current FAQ
+            // Toggle current FAQ item
             if (content.classList.contains('hidden')) {
                 content.classList.remove('hidden');
                 icon.style.transform = 'rotate(180deg)';
@@ -1662,7 +2040,7 @@
             }
         }
 
-        // Mobile menu functionality
+        // Mobile Menu: Toggle mobile menu
         function toggleMobileMenu() {
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -1671,54 +2049,15 @@
             mobileMenu.classList.toggle('open');
         }
 
-        // City slider functionality
-        let currentCitySlide = 0;
-        const citySlides = document.querySelectorAll('.city-slide');
-        const cityDots = document.querySelectorAll('.slider-dot');
-        const totalCitySlides = citySlides.length;
-
-        function showCitySlide(index) {
-            // Hide all slides
-            citySlides.forEach(slide => {
-                slide.classList.remove('active');
-            });
-            
-            // Remove active class from all dots
-            cityDots.forEach(dot => {
-                dot.classList.remove('active');
-            });
-            
-            // Show the selected slide
-            citySlides[index].classList.add('active');
-            
-            // Activate the corresponding dot
-            cityDots[index].classList.add('active');
-            
-            currentCitySlide = index;
-        }
-
-        function nextCitySlide() {
-            let nextIndex = (currentCitySlide + 1) % totalCitySlides;
-            showCitySlide(nextIndex);
-        }
-
-        // Auto-advance city slides
-        setInterval(nextCitySlide, 5000);
-
-        // Add click events to dots
-        cityDots.forEach(dot => {
-            dot.addEventListener('click', function() {
-                const index = parseInt(this.getAttribute('data-index'));
-                showCitySlide(index);
-            });
-        });
-
-        // Initialize animations on page load
+        // Initialize on DOM Load: Start animations and set up event listeners
         document.addEventListener('DOMContentLoaded', function() {
             animateOnScroll();
             
-            // Add event listener to mobile menu button
+            // Set up mobile menu button
             document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+            
+            // Initialize city slider
+            showCitySlide(0);
         });
     </script>
 </body>
